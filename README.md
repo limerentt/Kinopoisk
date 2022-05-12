@@ -1,1 +1,1 @@
-# Kinopoisk_python_review2
+# KinoPoisk
