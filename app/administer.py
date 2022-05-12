@@ -3,7 +3,6 @@ from app import admin, db
 from app.models import CharacterShip, DirectorShip, Film, Genre, GenreShip, Person
 
 
-# admin.add_view(ModelView(Film, db.session))
 admin.add_view(ModelView(Person, db.session))
 admin.add_view(ModelView(Genre, db.session))
 admin.add_view(ModelView(GenreShip, db.session))
