@@ -1,0 +1,61 @@
+{% extends "base1.html" %}
+
+{% block content %}
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header">
+                Filter
+            </div>
+            <div class="collapsible-body">
+                <form action="" method="post" novalidate>
+                    {{filterform.hidden_tag()}}
+                    <p>
+                        {{ filterform.genre.label }}<br>
+                        {{ filterform.genre }}<br>
+                    </p>
+                    <p>
+                        {{ filterform.director.label }}<br>
+                        {{ filterform.director }}<br>
+                    </p>
+                    <p>
+                        {{ filterform.character.label }}<br>
+                        {{ filterform.character }}<br>
+                    </p>
+                    <div class="divider"></div>
+                    <div class="center-align" style="padding-top: 25px">
+                        <label class="waves-effect waves-light btn" for="submit">FILTER</label>
+                    </div>
+                    <input id="submit" name="submit" type="submit" hidden> 
+                </form>
+            </div>
+        </li>
+    </ul>
+    {% for bl in films %}
+        <div class="row">
+            {% for film in bl %}
+            <a href="{{url_for('film_view', _film=film.film.id)}}">
+                <div class="col s{{count}}">
+                    <div class="card blue-grey darken-1" style="margin-bottom: 0; margin-top: 0;">
+                        <div class="card-image">
+                            <img src="{{ url_for('static', filename='avatars/' + film.film.path) }}">
+                            <span class="card-title">{{film.film.title}}</span>
+                        </div>
+                        <div class="card-content white-text">
+                            <div class="divider"></div>
+                            <div style="display: flex; flex-direction: row; padding-top: 0.7rem;">
+                                <h6 style="margin: 0; padding-right: 5px;">Year:</h6>
+                                <p style="line-height: 1.15rm;"> {{film.film.date}}</p>
+                            </div>
+                            <div style="display: flex; flex-direction: row; padding-top: 0.7rem;">
+                                <h6 style="margin: 0; padding-right: 5px;">Genre:</h6>
+                                <p style="line-height: 1.15rm;"> {{film.genres[0]}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </a>
+            {% endfor %}         
+        </div>
+    {% endfor %}
+            
+{% endblock %}
