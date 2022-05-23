@@ -9,6 +9,8 @@
 
 > git clone git@github.com:limerentt/Kinopoisk_python_review2.git
 
+ * You also need the following libraries to run this project: _flask-sqlalchemy, flask-migrate, flask-login, flask-admin, flask-wtf_.
+
 ### Run:
 
 > source venv/bin/activate
